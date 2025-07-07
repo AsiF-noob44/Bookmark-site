@@ -13,7 +13,7 @@
   --breakpoint-lg: 1020px;
   --breakpoint-xl: 1440px;
 
-  --background-image-dots: url("./images/bg-dots.svg");
+  --background-image-dots: url("../images/bg-dots.svg");
 }
 
 @layer components {
