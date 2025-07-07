@@ -1,3 +1,125 @@
+@layer components {
+  .tab.active > div {
+    @apply text-soft-red border-b-4 border-soft-red bg-white shadow-md;
+  }
+  .tab {
+    @apply cursor-pointer transition-colors duration-200;
+  }
+
+  nav .container {
+    @apply px-4 sm:px-6;
+  }
+
+  #logo {
+    @apply transition-all duration-200;
+    min-height: 2rem;
+  }
+
+  .nav-button {
+    @apply min-w-[100px] inline-flex items-center justify-center;
+    min-height: 44px;
+  }
+
+  footer {
+    @apply text-center md:text-left;
+  }
+
+  footer .container > div:first-child {
+    @apply w-full md:w-auto;
+  }
+
+  @media (min-width: 1024px) {
+    .desktop-nav {
+      @apply flex items-center justify-between w-full;
+    }
+
+    .nav-links {
+      @apply flex items-center space-x-6;
+    }
+
+    .nav-buttons {
+      @apply flex items-center space-x-4;
+    }
+
+    .nav-button {
+      min-width: 120px;
+      min-height: 48px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    #hamburger {
+      @apply block;
+    }
+
+    .desktop-nav {
+      @apply hidden;
+    }
+  }
+
+  .hamburger-line {
+    @apply transition-all duration-300 ease-in-out;
+    transform-origin: center;
+  }
+
+  #hamburger {
+    @apply cursor-pointer;
+  }
+
+  #hamburger:hover .hamburger-line {
+    @apply opacity-80;
+  }
+
+  #mobile-menu {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  .translate-x-full {
+    transform: translateX(100%);
+  }
+
+  .translate-x-0 {
+    transform: translateX(0);
+  }
+
+  .bg-opacity-90 {
+    background-color: hsla(229, 31%, 21%, 0.9);
+  }
+
+  #mobile-menu a {
+    @apply transform transition-all duration-300 ease-out;
+    animation: slideInFromRight 0.4s ease-out forwards;
+    opacity: 0;
+  }
+
+  #mobile-menu.flex a:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  #mobile-menu.flex a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  #mobile-menu.flex a:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  #mobile-menu.flex a:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  #mobile-menu.flex a:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
 @import "tailwindcss";
 
 @theme {
@@ -10,10 +132,36 @@
 
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
-  --breakpoint-lg: 1020px;
+  --breakpoint-lg: 1024px;
   --breakpoint-xl: 1440px;
 
   --background-image-dots: url("../images/bg-dots.svg");
+}
+
+@layer utilities {
+  .lg\:flex {
+    @media (min-width: 1024px) {
+      display: flex;
+    }
+  }
+
+  .lg\:hidden {
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .md\:h-10 {
+    @media (min-width: 768px) {
+      height: 2.5rem;
+    }
+  }
+
+  .lg\:h-12 {
+    @media (min-width: 1024px) {
+      height: 3rem;
+    }
+  }
 }
 
 @layer components {
